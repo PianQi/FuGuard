@@ -8,8 +8,8 @@ from torch.utils.data import Subset, random_split
 from torchvision import datasets
 from collections import Counter
 import pandas as pd
-from FuGuard.main_IMAGE.config import CONFIG
-from FuGuard.main_IMAGE.utils import BackdoorDataset, WhiteSquareTrigger, setup_seed, dirichlet_split_noniid
+from FuGuard.main_image.config import CONFIG
+from FuGuard.main_image.utils import BackdoorDataset, WhiteSquareTrigger, setup_seed, dirichlet_split_noniid
 
 
 def load_data(name, root, download=True):
