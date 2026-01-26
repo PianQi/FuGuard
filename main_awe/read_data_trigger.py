@@ -4,7 +4,7 @@ import json
 import os
 from scipy.signal import butter, filtfilt
 import matplotlib.pyplot as plt
-from FuGuard.main_AWE.config import CONFIG
+from FuGuard.main_awe.config import CONFIG
 
 
 os.makedirs(CONFIG["SAVE_FOLDER"], exist_ok=True)
