@@ -13,8 +13,6 @@ from FuGuard.main_awe.utils import (
     fedavg, evaluate_global, vae_loss, save_results, LSTMClassifier, LSTMVAE,
 )
 
-
-
 def apply_principal_direction(z, principal_dirs, dir_idx=0, alpha=1.0):
     direction = principal_dirs[dir_idx].view_as(z[0])  # [C, H, W]
     return z + alpha * direction  # [N, C, H, W]
