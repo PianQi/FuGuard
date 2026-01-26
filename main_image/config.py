@@ -3,7 +3,7 @@ import torch
 CONFIG = {
     "DATA_FOLDER": "../FuGuard/data/IMAGE",
     "SAVE_DATA_FOLDER": "../FuGuard/backdoor/processed_IMAGE",
-    "SAVE_RESULTS_FOLDER": "../FuGuard/results_image_ot_sen",
+    "SAVE_RESULTS_FOLDER": "../FuGuard/results_image",
     "seed": 0,    # 0, 1, 42
 
     "dataset_name": 'SVHN',   # SVHN, EuroSAT, CIFAR10, CIFAR100
