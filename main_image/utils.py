@@ -8,7 +8,7 @@ from torch import Tensor
 import torch.nn as nn
 import pickle
 from torch.utils.data import Dataset, TensorDataset
-from FuGuard.main_IMAGE.config import CONFIG
+from FuGuard.main_image.config import CONFIG
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 _ALL_CLIENT_DATA = None
