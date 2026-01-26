@@ -40,7 +40,6 @@ def dirichlet_split_noniid(labels, alpha, n_clients):
     return client_indices
 
 
-# ------------------ 数据加载 ------------------
 def _load_all_client_data():
     global _ALL_CLIENT_DATA
 
@@ -96,35 +95,6 @@ def load_global_testdata(backdoor=False):
         return test_data["clean_test"]
 
 
-# def evaluate_global(model, loader, device):
-#     model.eval()
-#     all_preds, all_labels = [], []
-
-#     with torch.no_grad():
-#         for Xb, yb in loader:
-#             Xb, yb = Xb.to(device), yb.to(device)
-#             outputs = model(Xb)
-#             preds = outputs.argmax(dim=1)
-#             all_preds.extend(preds.cpu().numpy())
-#             all_labels.extend(yb.cpu().numpy())
-
-#     all_preds = np.array(all_preds)
-#     all_labels = np.array(all_labels)
-
-#     accuracy = (all_preds == all_labels).mean()
-#     precision = precision_score(all_labels, all_preds, average='macro')
-#     recall = recall_score(all_labels, all_preds, average='macro')
-#     f1 = f1_score(all_labels, all_preds, average='macro')
-#     cm = confusion_matrix(all_labels, all_preds)
-
-#     return {
-#         "accuracy": accuracy,
-#         "precision": precision,
-#         "recall": recall,
-#         "f1": f1,
-#         "confusion_matrix": cm,
-#     }
-
 def evaluate_acc(model, loader, device):
     model.eval()
     all_preds, all_labels = [], []
@@ -149,7 +119,7 @@ def evaluate_asr(model, loader, device, target_label):
     success, total = 0, 0
 
     with torch.no_grad():
-        for Xb, _ in loader:   # ASR 不需要真实标签
+        for Xb, _ in loader:
             Xb = Xb.to(device)
             preds = model(Xb).argmax(dim=1)
             success += (preds == target_label).sum().item()
