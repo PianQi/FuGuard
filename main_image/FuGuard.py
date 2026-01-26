@@ -417,7 +417,7 @@ for round_idx in range(CONFIG["ROUNDS"]):
 # =========================
 total_time = time.time() - total_start_time
 
-save_results_1(
+save_results(
     mia_before_unlearn,
     mia_per_round_after,
     test_acc_per_round,
