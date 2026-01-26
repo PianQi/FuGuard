@@ -4,8 +4,8 @@ import random
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from FuGuard.main_AWE.config import CONFIG
-from FuGuard.main_AWE.utils import (
+from FuGuard.main_awe.config import CONFIG
+from FuGuard.main_awe.utils import (
     load_client_data, load_global_testdata,
     fedavg, evaluate_global, save_results, LSTMClassifier
 )
