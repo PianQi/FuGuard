@@ -7,8 +7,8 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.decomposition import PCA
 from geomloss import SamplesLoss
-from FuGuard.main_AWE.config import CONFIG
-from FuGuard.main_AWE.utils import (
+from FuGuard.main_aweE.config import CONFIG
+from FuGuard.main_awe.utils import (
     load_client_data, load_global_testdata,
     fedavg, evaluate_global, vae_loss, save_results, LSTMClassifier, LSTMVAE,
 )
@@ -90,16 +90,16 @@ def request_unlearn(client_name, active_client_names, forget_set, global_model, 
 
     print("Loading VAE model...")
     seq_len = some_samples.shape[1]
-    input_dim = some_samples.shape[2]   # ✅ 特征维度
+    input_dim = some_samples.shape[2]
     gen_model = LSTMVAE(input_dim=input_dim, hidden_dim=256, latent_dim=32).to(device)
     print("VAE model loaded successfully.")
     optimizer = torch.optim.Adam(gen_model.parameters(), lr=1e-3)
 
-    # 训练 loop
+    # train loop
     for epoch in range(1000):
         gen_model.train()
         total_loss = 0
-        for signals, _ in sampled_dataloader:  # ✅ 修正解包
+        for signals, _ in sampled_dataloader:
             signals = signals.to(device)
             x_recon, mu, logvar = gen_model(signals)
             loss = vae_loss(signals, x_recon, mu, logvar)
@@ -114,7 +114,7 @@ def request_unlearn(client_name, active_client_names, forget_set, global_model, 
     gen_model.eval()
     with torch.no_grad():
         mu, logvar = gen_model.encode(some_samples[:100].to(device))
-        z = mu   # 使用 mean 表示 latent
+        z = mu
 
         # PCA in latent space
         z_np = z.cpu().numpy()
@@ -122,10 +122,8 @@ def request_unlearn(client_name, active_client_names, forget_set, global_model, 
         pca.fit(z_np)
         principal_dirs = torch.tensor(pca.components_, dtype=torch.float32, device=device)
 
-        # 沿第1个主成分方向移动
         z_new = apply_principal_direction(z, principal_dirs, dir_idx=1, alpha=1.0)
 
-        # decode 回原始序列长度
         new_data = gen_model.decode(z_new, seq_len=seq_len).clamp(0, 1)
 
     print(f"Generated new data with shape: {new_data.shape}")
