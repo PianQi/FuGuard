@@ -6,8 +6,8 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 
-from FuGuard.main_IMAGE.config import CONFIG
-from FuGuard.main_IMAGE.utils import (
+from FuGuard.main_image.config import CONFIG
+from FuGuard.main_image.utils import (
     setup_seed,
     load_client_data,
     load_global_testdata,
