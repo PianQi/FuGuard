@@ -1,10 +1,9 @@
-#%%
 import torch
 
 CONFIG = {
-    "DATA_FOLDER": "/home/modal-workbench/Projects/Pian/FuGuard/data/AWE",
-    "SAVE_DATA_FOLDER": "/home/modal-workbench/Projects/Pian/FuGuard/backdoor/processed_AWE",
-    "SAVE_RESULTS_FOLDER": "/home/modal-workbench/Projects/Pian/FuGuard/results_awe",
+    "DATA_FOLDER": "../FuGuard/data/AWE",
+    "SAVE_DATA_FOLDER": "../FuGuard/backdoor/processed_AWE",
+    "SAVE_RESULTS_FOLDER": "../FuGuard/results_awe",
     "F": 42,
 
     "FS_ORIG": 4000,
@@ -44,7 +43,7 @@ CONFIG = {
     "client_2": [100],
     },
 
-    "method": 'fedsga',   # fu, 
+    "method": 'fedsga',   # fuguard, retrain, 
     'distance_threshold': 2.2,
 }
 
