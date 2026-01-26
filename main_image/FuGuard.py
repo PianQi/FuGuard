@@ -10,8 +10,8 @@ from diffusers import AutoencoderKL
 from sklearn.decomposition import PCA
 from geomloss import SamplesLoss
 
-from FuGuard.main_IMAGE.config import CONFIG
-from FuGuard.main_IMAGE.utils import (
+from FuGuard.main_image.config import CONFIG
+from FuGuard.main_image.utils import (
     setup_seed,
     load_client_data,
     load_global_testdata,
