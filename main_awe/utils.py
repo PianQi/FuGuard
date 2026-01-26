@@ -5,7 +5,7 @@ import torch
 import torch.nn as nn
 import pickle
 from torch.utils.data import TensorDataset
-from FuGuard.main_AWE.config import CONFIG
+from FuGuard.main_awe.config import CONFIG
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
 def load_client_data(client_name):
