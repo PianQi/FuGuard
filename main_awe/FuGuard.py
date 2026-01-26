@@ -7,7 +7,7 @@ import torch.nn as nn
 from torch.utils.data import DataLoader, TensorDataset
 from sklearn.decomposition import PCA
 from geomloss import SamplesLoss
-from FuGuard.main_aweE.config import CONFIG
+from FuGuard.main_awe.config import CONFIG
 from FuGuard.main_awe.utils import (
     load_client_data, load_global_testdata,
     fedavg, evaluate_global, vae_loss, save_results, LSTMClassifier, LSTMVAE,
