@@ -8,7 +8,6 @@ from torch.utils.data import TensorDataset
 from FuGuard.main_AWE.config import CONFIG
 from sklearn.metrics import precision_score, recall_score, f1_score, confusion_matrix
 
-# ------------------ 数据加载 ------------------
 def load_client_data(client_name):
     path = os.path.join(CONFIG["SAVE_FOLDER"], f"{client_name}_train.npz")
     data = np.load(path, allow_pickle=True)
@@ -30,7 +29,7 @@ def load_global_testdata(backdoor=False):
         X = data["X_clean"].astype(np.float32)
         y = data["y_clean"].astype(np.int64)
     
-    # X = np.transpose(X, (0, 2, 1))  # 转成 (samples, channels, time)
+    # X = np.transpose(X, (0, 2, 1))  # (samples, channels, time)
     return TensorDataset(torch.from_numpy(X), torch.from_numpy(y))
 
 
