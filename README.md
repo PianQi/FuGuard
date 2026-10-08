@@ -1,6 +1,8 @@
 # FuGuard: Client-Level Federated Unlearning via Generative Surrogates and Optimal Transport
 
-This repository supports research on the training and **unlearning** process in Federated Learning (FL). It provides a modular framework to explore and compare various Federated Unlearning (FU) methods.
+This repository supports research on the training and **unlearning** process in Federated Learning (FL). It provides a modular framework to explore and compare various Federated Unlearning (FU) methods. 
+
+Main GitHub repositories: [M.O.D.A.L. Github](https://github.com/MODAL-UNINA/FuGuard)
 
 The paper details are as follows:
 P. Qi, D. Annunziata, C. Jappelli, F. Giampaolo and F. Piccialli, "FuGuard: Client-Level Federated Unlearning via Generative Surrogates and Optimal Transport," in IEEE Transactions on Neural Networks and Learning Systems, doi: 10.1109/TNNLS.2026.3708982. [Paper](https://ieeexplore.ieee.org/abstract/document/11604159)
